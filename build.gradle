@@ -29,7 +29,5 @@ dependencies {
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compile'org.postgresql:postgresql:42.2.2.jre7'
 	compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-	compile 'mysql:mysql-connector-java'
-	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

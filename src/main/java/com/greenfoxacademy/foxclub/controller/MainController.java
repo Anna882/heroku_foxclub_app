@@ -24,7 +24,8 @@ public class MainController {
     if (petName != null) {
       model.addAttribute("fox", foxRepository.findFoxByName(petName));
       return "index";
-    } else return "redirect:/login";
+    }
+    return "redirect:/login";
   }
 
   @GetMapping(value = "/login")
@@ -33,8 +34,8 @@ public class MainController {
   }
 
   @PostMapping(value = "/login")
-  public String login(@RequestParam(name = "pet_name", required = true) String petName) {
-    if(foxRepository.findFoxByName(petName).getName().equals(petName)) {
+  public String login(@RequestParam(name = "pet_name") String petName) {
+    if(!foxRepository.findFoxByName(petName).getName().equals(petName)) {
       foxRepository.save(new Fox(petName, "fries", "Coca Cola"));
     }
     return "redirect:/?pet_name=" + petName;
