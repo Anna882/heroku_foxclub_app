@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Information view</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div>
+    <ul>
+        <li>
+    <a th:href="@{/information}">Information</a>
+        </li>
+    </ul>
+    <div>
+        <img th:src="@{~/resources/img/greenfox.png}" th:width="200" th:height="200">
+    </div>
+    <div th:object="${fox}">
+        <p th:text="'This is ' + ${fox.name} + '. Currently living on ' + ${fox.food} + ' and ' + ${fox.drink} +
+        '. He knows ' + ${fox.listOfTricks.size()} + ' tricks.'">
+        </p>
+    </div>
+    <div>
+        <h1>Known tricks</h1>
+        <ul>
+            <li>
+                write HTML
+            </li>
+            <li>
+                code in Java
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
