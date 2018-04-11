@@ -17,18 +17,13 @@
     </div>
     <div th:object="${fox}">
         <p th:text="'This is ' + ${fox.name} + '. Currently living on ' + ${fox.food} + ' and ' + ${fox.drink} +
-        '. He knows ' + ${fox.listOfTricks.size()} + ' tricks.'">
+        '. He knows ' + ${fox.trickRepository.findAllByLearned().size()} + ' tricks.'">
         </p>
     </div>
     <div>
         <h1>Known tricks</h1>
-        <ul>
-            <li>
-                write HTML
-            </li>
-            <li>
-                code in Java
-            </li>
+        <ul th:each="trick : ${fox.trickRepository.findAllByLearned}">
+            <li th:text="${trick}"/>
         </ul>
     </div>
 </div>
